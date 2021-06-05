@@ -56,7 +56,7 @@ target_sources(
 
 target_include_directories(${TARGET} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-target_link_libraries(${TARGET} PUBLIC Queue::Library UnionFind::Library)
+target_link_libraries(${TARGET} PUBLIC Container::Library UnionFind::Library)
 
 if(ALG_ENABLE_TESTS)
     add_subdirectory(test)

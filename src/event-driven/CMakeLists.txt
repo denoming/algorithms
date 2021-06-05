@@ -19,7 +19,7 @@ target_sources(
             ${CMAKE_CURRENT_SOURCE_DIR}/src/Event.cpp
             ${CMAKE_CURRENT_SOURCE_DIR}/src/Particle.cpp)
 
-target_link_libraries(${TARGET} PUBLIC Queue::Library OpenGL::GLU GLUT::GLUT)
+target_link_libraries(${TARGET} PUBLIC Container::Library OpenGL::GLU GLUT::GLUT)
 
 target_include_directories(${TARGET} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 

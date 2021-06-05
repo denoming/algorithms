@@ -1,11 +1,11 @@
 #include <gtest/gtest.h>
 
-#include "TrioSubstringSearch.hpp"
+#include "KnuthMorrisPrattSubstringSearch.hpp"
 
 using namespace algorithms;
 using namespace testing;
 
-using CharTrioSubstringSearch = TrioSubstringSearch<char>;
+using CharSubstringSearch = KnuthMorrisPrattSubstringSearch<char>;
 
 TEST(TrioSubstringSearchTest, Find)
 {
@@ -16,7 +16,7 @@ TEST(TrioSubstringSearchTest, Find)
 
     static const std::string_view pattern{"pepper"};
 
-    const auto p1 = CharTrioSubstringSearch::search(text, pattern);
+    const auto p1 = CharSubstringSearch::search(text, pattern);
     const auto p2 = text.find(pattern);
     EXPECT_EQ(p1, p2);
 }

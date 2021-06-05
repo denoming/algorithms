@@ -11,7 +11,7 @@ target_sources(
            "${CMAKE_CURRENT_SOURCE_DIR}/include/ThreeWayRadixSort.hpp"
            "${CMAKE_CURRENT_SOURCE_DIR}/include/LongestCommonPrefix.hpp"
            "${CMAKE_CURRENT_SOURCE_DIR}/include/TernarySearchTries.hpp"
-           "${CMAKE_CURRENT_SOURCE_DIR}/include/TrioSubstringSearch.hpp"
+           "${CMAKE_CURRENT_SOURCE_DIR}/include/KnuthMorrisPrattSubstringSearch.hpp"
            "${CMAKE_CURRENT_SOURCE_DIR}/include/BoyerMooreSubstringSearch.hpp"
            "${CMAKE_CURRENT_SOURCE_DIR}/include/RabinKarpSubstringSearch.hpp"
            "${CMAKE_CURRENT_SOURCE_DIR}/include/RegExpMatcher.hpp"

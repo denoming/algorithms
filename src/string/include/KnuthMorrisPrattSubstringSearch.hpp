@@ -11,7 +11,7 @@ namespace algorithms {
  * The Knuth-Morris-Pratt substring search algorithm implementation.
  */
 template<typename Ch = char>
-class TrioSubstringSearch {
+class KnuthMorrisPrattSubstringSearch {
 public:
     static constexpr int NotFound = -1;
 

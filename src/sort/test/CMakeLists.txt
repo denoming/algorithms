@@ -13,6 +13,7 @@ target_sources(
             ${CMAKE_CURRENT_SOURCE_DIR}/src/QuickSortTest.cpp
             ${CMAKE_CURRENT_SOURCE_DIR}/src/SelectionSortTest.cpp
             ${CMAKE_CURRENT_SOURCE_DIR}/src/ShellSortTest.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/src/ThreeWayQuickSortTest.cpp)
+            ${CMAKE_CURRENT_SOURCE_DIR}/src/ThreeWayQuickSortTest.cpp
+            ${CMAKE_CURRENT_SOURCE_DIR}/src/SelectTest.cpp)
 
 target_add_tests(TARGET ${TARGET})

@@ -11,7 +11,8 @@ target_sources(
            ${CMAKE_CURRENT_SOURCE_DIR}/include/QuickSort.hpp
            ${CMAKE_CURRENT_SOURCE_DIR}/include/SelectionSort.hpp
            ${CMAKE_CURRENT_SOURCE_DIR}/include/ShellSort.hpp
-           ${CMAKE_CURRENT_SOURCE_DIR}/include/ThreeWayQuickSort.hpp)
+           ${CMAKE_CURRENT_SOURCE_DIR}/include/ThreeWayQuickSort.hpp
+           ${CMAKE_CURRENT_SOURCE_DIR}/include/Select.hpp)
 
 target_include_directories(${TARGET} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 

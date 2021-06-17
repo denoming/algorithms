@@ -1,3 +1,22 @@
+/**
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the License.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT WARRANTY OF ANY KIND; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * MIT License for more details.
+ */
+
+/**
+ * @file LineSegment.cpp
+ *
+ * @brief Line segment data type implementation
+ *
+ * @author Denys Asauliak
+ * Contact: d.asauliak@gmail.com
+ */
+
 #include "LineSegment.hpp"
 
 namespace algorithms {

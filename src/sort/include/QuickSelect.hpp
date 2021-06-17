@@ -9,9 +9,9 @@
  */
 
 /**
- * @file Select.hpp
+ * @file QuickSelect.hpp
  *
- * @brief Select algorithm implementation
+ * @brief QuickSelect algorithm implementation
  *
  * @author Denys Asauliak
  * Contact: d.asauliak@gmail.com
@@ -27,7 +27,7 @@
 
 namespace algorithms {
 
-class Select {
+class QuickSelect {
 public:
     template<typename T, typename RandomIt>
     static T

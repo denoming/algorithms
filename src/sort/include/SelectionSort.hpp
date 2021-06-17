@@ -11,7 +11,7 @@
 /**
  * @file SelectionSort.hpp
  *
- * @brief Select sort algorithm implementation
+ * @brief Selection sort algorithm implementation
  *
  * @author Denys Asauliak
  * Contact: d.asauliak@gmail.com

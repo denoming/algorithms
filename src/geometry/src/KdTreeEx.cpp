@@ -24,7 +24,7 @@
 #include <set>
 
 #include <Sequence.hpp>
-#include <Select.hpp>
+#include <QuickSelect.hpp>
 
 namespace algorithms {
 
@@ -179,14 +179,14 @@ KdTreeEx::getMedian(Points points, KdTreeEx::Directions direction)
     if (isOdd) {
         /* Median equals of middle value of sequence */
         const std::size_t index = (count + 1) / 2;
-        auto point = Select::get<Point>(points.begin(), points.end(), comparator, index - 1);
+        auto point = QuickSelect::get<Point>(points.begin(), points.end(), comparator, index - 1);
         return (direction == Directions::vertical) ? point.x : point.y;
     } else {
         /* Median equals of average value of two middle elements of sequence */
         const std::size_t index1 = (count / 2);
         const std::size_t index2 = (count + 2) / 2;
-        auto point1 = Select::get<Point>(points.begin(), points.end(), comparator, index1 - 1);
-        auto point2 = Select::get<Point>(points.begin(), points.end(), comparator, index2 - 1);
+        auto point1 = QuickSelect::get<Point>(points.begin(), points.end(), comparator, index1 - 1);
+        auto point2 = QuickSelect::get<Point>(points.begin(), points.end(), comparator, index2 - 1);
         return (direction == Directions::vertical) ? (point1.x + point2.x) / 2
                                                    : (point1.y + point2.y) / 2;
     }

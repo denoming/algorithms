@@ -2,11 +2,6 @@ set(TARGET "UnionFind-Test")
 
 add_executable(${TARGET} "")
 
-target_link_libraries(${TARGET} PRIVATE UnionFind::Library)
-
-target_include_directories(${TARGET}
-                           PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
 target_sources(
     ${TARGET}
     PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include/Common.hpp"
@@ -16,4 +11,9 @@ target_sources(
             "${CMAKE_CURRENT_SOURCE_DIR}/src/QuickUnionTest.cpp"
             "${CMAKE_CURRENT_SOURCE_DIR}/src/UnionFindTest.cpp")
 
-target_add_tests(TARGET ${TARGET})
+target_link_libraries(${TARGET} PRIVATE UnionFind::Library)
+
+target_include_directories(${TARGET}
+        PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+
+gtest_enable(TARGET "${TARGET}" DIRECTORY "${PROJECT_OUTPUT_DIR}" DEFAULT_MAIN)

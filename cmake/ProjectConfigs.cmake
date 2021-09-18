@@ -6,8 +6,13 @@ set(CMAKE_CXX_EXTENSIONS ON)
 
 include(BuildLocation)
 include(BuildType)
-include(EnableCcache)
 
 if(ALG_ENABLE_TESTS)
+    enable_testing()
     include(AddGoogleTest)
+    message(STATUS "Building with tests")
+else()
+    message(STATUS "Building without tests")
 endif()
+
+include(EnableCcache)

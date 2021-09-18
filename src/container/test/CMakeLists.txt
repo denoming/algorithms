@@ -18,4 +18,4 @@ target_sources(
             "${CMAKE_CURRENT_SOURCE_DIR}/src/StackTest.cpp"
             "${CMAKE_CURRENT_SOURCE_DIR}/src/ArithmeticEvaluatorTest.cpp")
 
-target_add_tests(TARGET ${TARGET})
+gtest_enable(TARGET "${TARGET}" DIRECTORY "${CMAKE_BINARY_DIR}" DEFAULT_MAIN)

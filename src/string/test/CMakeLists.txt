@@ -16,4 +16,4 @@ target_sources(
             "${CMAKE_CURRENT_SOURCE_DIR}/src/RabinKarpSubstringSearchTest.cpp"
             "${CMAKE_CURRENT_SOURCE_DIR}/src/RegExpMatcherTest.cpp")
 
-target_add_tests(TARGET ${TARGET})
+gtest_enable(TARGET "${TARGET}" DIRECTORY "${PROJECT_OUTPUT_DIR}" DEFAULT_MAIN)

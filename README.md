@@ -75,6 +75,12 @@ $ cmake -S . -B build
 $ cmake --build build --parallel
 ```
 
+# Contact
+
+# License
+
+The license is the MIT license.
+
 ## Materials
 
 + ["Algorithms" by Robert Sedgewick and Kevin Wayne](https://algs4.cs.princeton.edu).

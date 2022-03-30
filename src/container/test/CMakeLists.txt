@@ -22,6 +22,7 @@ target_sources(
             src/ArithmeticEvaluator.cpp
             src/StackTest.cpp
             src/ArithmeticEvaluatorTest.cpp
+            src/CircularBufferTest.cpp
 )
 
 if (NOT CMAKE_CROSSCOMPILING)

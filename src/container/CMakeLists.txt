@@ -15,6 +15,7 @@ target_sources(
             include/LinkedStack.hpp
             include/FixedArrayStack.hpp
             include/ResizableArrayStack.hpp
+            include/CircularBuffer.hpp
             src/List.cpp
 )
 

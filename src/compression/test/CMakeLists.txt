@@ -1,11 +1,18 @@
-set(TARGET "Compression-Test")
+set(TARGET Compression-Test)
 
 add_executable(${TARGET} "")
 
-target_sources(
-    ${TARGET} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src/HuffmanTest.cpp"
-                      "${CMAKE_CURRENT_SOURCE_DIR}/src/LzwTest.cpp")
+target_sources(${TARGET}
+    PRIVATE src/HuffmanTest.cpp
+            src/LzwTest.cpp
+)
 
-target_link_libraries(${TARGET} PRIVATE Compression::Library)
+target_link_libraries(${TARGET}
+    PRIVATE Compression::Library
+            GTest::gtest_main
+            GTest::gmock_main
+)
 
-gtest_enable(TARGET "${TARGET}" DIRECTORY "${PROJECT_OUTPUT_DIR}" DEFAULT_MAIN)
+if (NOT CMAKE_CROSSCOMPILING)
+    gtest_discover_tests(${TARGET} WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+endif()

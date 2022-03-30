@@ -1,16 +1,24 @@
-set(TARGET "Hash-Test")
+set(TARGET Hash-Test)
 
 add_executable(${TARGET} "")
 
-target_link_libraries(${TARGET} PRIVATE Hash::Library)
+target_link_libraries(${TARGET}
+    PRIVATE Hash::Library
+            GTest::gtest_main
+            GTest::gmock_main
+)
 
 target_include_directories(${TARGET}
-                           PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+    PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+)
 
 target_sources(
     ${TARGET}
-    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/HashTest.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/src/ChainingHashTreeTest.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/src/LinearProbingHashTree.cpp)
+    PRIVATE src/HashTest.cpp
+            src/ChainingHashTreeTest.cpp
+            src/LinearProbingHashTree.cpp
+)
 
-gtest_enable(TARGET "${TARGET}" DIRECTORY "${PROJECT_OUTPUT_DIR}" DEFAULT_MAIN)
+if (NOT CMAKE_CROSSCOMPILING)
+    gtest_discover_tests(${TARGET} WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+endif()

@@ -1,19 +1,27 @@
-set(TARGET "UnionFind-Test")
+set(TARGET UnionFind-Test)
 
 add_executable(${TARGET} "")
 
 target_sources(
     ${TARGET}
-    PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include/Common.hpp"
-            "${CMAKE_CURRENT_SOURCE_DIR}/src/Common.cpp"
-            "${CMAKE_CURRENT_SOURCE_DIR}/src/PercolationTest.cpp"
-            "${CMAKE_CURRENT_SOURCE_DIR}/src/QuickFindTest.cpp"
-            "${CMAKE_CURRENT_SOURCE_DIR}/src/QuickUnionTest.cpp"
-            "${CMAKE_CURRENT_SOURCE_DIR}/src/UnionFindTest.cpp")
+    PRIVATE include/Common.hpp
+            src/Common.cpp
+            src/PercolationTest.cpp
+            src/QuickFindTest.cpp
+            src/QuickUnionTest.cpp
+            src/UnionFindTest.cpp
+)
 
-target_link_libraries(${TARGET} PRIVATE UnionFind::Library)
+target_link_libraries(${TARGET}
+    PRIVATE UnionFind::Library
+            GTest::gtest_main
+            GTest::gmock_main
+)
 
 target_include_directories(${TARGET}
-        PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
+    PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+)
 
-gtest_enable(TARGET "${TARGET}" DIRECTORY "${PROJECT_OUTPUT_DIR}" DEFAULT_MAIN)
+if (NOT CMAKE_CROSSCOMPILING)
+    gtest_discover_tests(${TARGET} WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+endif()

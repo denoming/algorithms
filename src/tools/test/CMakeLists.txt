@@ -1,15 +1,22 @@
-set(TARGET "Tools-Test")
+set(TARGET Tools-Test)
 
 add_executable(${TARGET} "")
 
-target_link_libraries(${TARGET} PRIVATE Tools::Library)
+target_link_libraries(${TARGET}
+    PRIVATE Tools::Library
+            GTest::gtest_main
+            GTest::gmock_main
+)
 
 target_sources(
     ${TARGET}
-    PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src/SequenceTest.cpp"
-            "${CMAKE_CURRENT_SOURCE_DIR}/src/PartitionTest.cpp"
-            "${CMAKE_CURRENT_SOURCE_DIR}/src/MemoryStreamBufferTest.cpp"
-            "${CMAKE_CURRENT_SOURCE_DIR}/src/DynamicBitSetTest.cpp"
-            "${CMAKE_CURRENT_SOURCE_DIR}/src/ByteOrderTest.cpp")
+    PRIVATE src/SequenceTest.cpp
+            src/PartitionTest.cpp
+            src/MemoryStreamBufferTest.cpp
+            src/DynamicBitSetTest.cpp
+            src/ByteOrderTest.cpp
+)
 
-gtest_enable(TARGET "${TARGET}" DIRECTORY "${PROJECT_OUTPUT_DIR}" DEFAULT_MAIN)
+if (NOT CMAKE_CROSSCOMPILING)
+    gtest_discover_tests(${TARGET} WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+endif()

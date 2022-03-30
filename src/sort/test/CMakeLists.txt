@@ -1,19 +1,26 @@
-set(TARGET "Sort-Test")
+set(TARGET Sort-Test)
 
 add_executable(${TARGET} "")
 
-target_link_libraries(${TARGET} PRIVATE Sort::Library)
+target_link_libraries(${TARGET}
+    PRIVATE Sort::Library
+            GTest::gtest_main
+            GTest::gmock_main
+)
 
 target_sources(
     ${TARGET}
-    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/BottomUpMergeSortTest.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/src/HeapSortTest.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/src/InsertionSortTest.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/src/MergeSortTest.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/src/QuickSortTest.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/src/SelectionSortTest.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/src/ShellSortTest.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/src/ThreeWayQuickSortTest.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/src/QuickSelectTest.cpp)
+    PRIVATE src/BottomUpMergeSortTest.cpp
+            src/HeapSortTest.cpp
+            src/InsertionSortTest.cpp
+            src/MergeSortTest.cpp
+            src/QuickSortTest.cpp
+            src/SelectionSortTest.cpp
+            src/ShellSortTest.cpp
+            src/ThreeWayQuickSortTest.cpp
+            src/QuickSelectTest.cpp
+)
 
-gtest_enable(TARGET "${TARGET}" DIRECTORY "${PROJECT_OUTPUT_DIR}" DEFAULT_MAIN)
+if (NOT CMAKE_CROSSCOMPILING)
+    gtest_discover_tests(${TARGET} WORKING_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+endif()

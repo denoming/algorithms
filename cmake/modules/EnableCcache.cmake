@@ -14,7 +14,7 @@ if(CCACHE_PROGRAM)
         CCACHE_BASEDIR=${baseDir}
         CCACHE_SLOPPINESS=pch_defines,time_macros
     )
-    message(STATUS ccacheEnv=${ccacheEnv})
+
     foreach (lang IN ITEMS C CXX OBJC OBJCXX CUDA)
         set(CMAKE_${lang}_COMPILER_LAUNCHER ${CMAKE_COMMAND} -E env ${ccacheEnv} ${CCACHE_PROGRAM})
     endforeach ()

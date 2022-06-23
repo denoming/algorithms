@@ -24,6 +24,7 @@
 #include "IndexPriorityQueue.hpp"
 
 #include <optional>
+#include <numeric>
 
 namespace algorithms {
 

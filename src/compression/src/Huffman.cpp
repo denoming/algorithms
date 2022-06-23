@@ -23,6 +23,7 @@
 
 #include <queue>
 #include <array>
+#include <numeric>
 
 /** Tree Implementation */
 namespace algorithms::huffman {

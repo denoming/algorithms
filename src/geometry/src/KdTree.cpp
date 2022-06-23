@@ -20,6 +20,7 @@
 #include "KdTree.hpp"
 
 #include <algorithm>
+#include <numeric>
 
 #include <ThreeWayQuickSort.hpp>
 

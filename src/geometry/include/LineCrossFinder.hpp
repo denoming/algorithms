@@ -24,6 +24,8 @@
 
 #include <PriorityQueue.hpp>
 
+#include <numeric>
+
 namespace algorithms {
 
 /**

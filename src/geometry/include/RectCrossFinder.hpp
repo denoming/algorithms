@@ -24,6 +24,7 @@
 #include <PriorityQueue.hpp>
 
 #include <tuple>
+#include <numeric>
 
 namespace algorithms {
 

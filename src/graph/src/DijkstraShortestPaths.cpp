@@ -19,6 +19,8 @@
 
 #include "DijkstraShortestPaths.hpp"
 
+#include <numeric>
+
 namespace algorithms {
 
 DijkstraShortestPaths::DijkstraShortestPaths(const EdgeWeightedDigraph& graph, std::size_t s)

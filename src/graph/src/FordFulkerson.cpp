@@ -22,6 +22,7 @@
 #include <queue>
 #include <optional>
 #include <functional>
+#include <numeric>
 
 namespace algorithms {
 

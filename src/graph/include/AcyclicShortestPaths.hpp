@@ -22,6 +22,7 @@
 #include "EdgeWeightedDigraph.hpp"
 
 #include <optional>
+#include <numeric>
 
 namespace algorithms {
 

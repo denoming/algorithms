@@ -19,6 +19,8 @@
 
 #include "LsdRadixSort.hpp"
 
+#include <numeric>
+
 static const auto R = std::numeric_limits<unsigned char>::max();
 
 namespace algorithms {

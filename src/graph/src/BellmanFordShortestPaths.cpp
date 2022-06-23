@@ -23,6 +23,7 @@
 
 #include <stdexcept>
 #include <queue>
+#include <numeric>
 
 namespace algorithms {
 

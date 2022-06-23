@@ -19,6 +19,8 @@
 
 #include "MsdRadixSort.hpp"
 
+#include <numeric>
+
 namespace algorithms {
 
 void

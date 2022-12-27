@@ -20,6 +20,7 @@
 #include "MD5.hpp"
 
 #include <bit>
+#include <algorithm>
 #include <stdexcept>
 
 namespace {

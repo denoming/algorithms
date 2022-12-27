@@ -26,7 +26,9 @@
 #include <iomanip>
 #include <sstream>
 #include <random>
+#include <algorithm>
 #include <chrono>
+#include <memory>
 
 #include <cstring>
 

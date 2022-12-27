@@ -19,6 +19,7 @@
 
 #include "GrahamScan.hpp"
 
+#include <algorithm>
 #include <stack>
 
 namespace algorithms {

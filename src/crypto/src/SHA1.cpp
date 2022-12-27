@@ -20,6 +20,7 @@
 #include "SHA1.hpp"
 
 #include <bit>
+#include <algorithm>
 #include <stdexcept>
 
 namespace {

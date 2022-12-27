@@ -66,6 +66,16 @@
     * QuickUnion
     * UnionFind
 
+## ToDo
+
+* Least Recently Used Cache
+* Most Recently Used Cache
+* Circular Buffer
+* Probabilistic Data Structures
+  * Bloom filter
+  * Cuckoo filter
+* HyperLogLog
+
 ## How-To
 
 ### Build

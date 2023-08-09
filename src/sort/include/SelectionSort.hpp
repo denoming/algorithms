@@ -29,12 +29,12 @@ namespace algorithms {
  * Selection sort method implementation class.
  *
  * Properties:
- *   - Not stable
+ *   - Not stable (do not preserve the ordering of equal elements)
  *   - Worst-case performance: N^2 / 2
  *   - Average performance: N^2 / 2
  *   - Best-case performance: N^2 / 2
- *
- * Remark: N exchanges.
+ *   - Time complexity: O(n^2)
+ *   - Space complexity: O(1)
  */
 class SelectionSort {
 public:

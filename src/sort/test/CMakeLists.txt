@@ -19,6 +19,7 @@ target_sources(
             src/ShellSortTest.cpp
             src/ThreeWayQuickSortTest.cpp
             src/QuickSelectTest.cpp
+            src/BubbleSortTest.cpp
 )
 
 if (NOT CMAKE_CROSSCOMPILING)

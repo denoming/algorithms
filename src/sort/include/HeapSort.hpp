@@ -29,14 +29,23 @@ namespace algorithms {
 /**
  * Heap sort method implementation class.
  *
+ * Heap-ordered binary  tree has mandatory condition: parent's key is not smaller
+ * than children's key.
+ *
  * Properties:
+ *   - Not stable
  *   - Inplace
  *   - Worst-case performance: 2N x lgN / 2
  *   - Average performance: 2N x lgN / 2
  *   - Best-case performance: N x lgN
+ *   - Time complexity: O(N log N)
+ *   - Space complexity: O(1)
  *
  * Remark: No linear extra space and no quadratic time in worst case,
- *         but makes poor use of cache memory.
+ *         but makes poor use of cache memory (bad cache locality).
+ *         Heapsort swaps elements based on location in heaps, which
+ *         can cause many read operations in a seemingly random order,
+ *         causing many cache misses.
  */
 class HeapSort {
 public:
@@ -59,14 +68,18 @@ public:
             return;
         }
 
+        //    Bottom-up heapify unordered array
+        // (at the top we will have the max element)
         std::size_t size = std::distance(first, last);
-        for (std::size_t k = size / 2; k >= 1; --k) {
+        for (std::size_t k = size / 2 /* Optimization: Start from the middle */; k >= 1; --k) {
             sink(first, k, size, compare);
         }
 
         while (size > 1) {
+            /* Swap max element with the last element */
             std::swap(first[0], first[size - 1]);
-            size--;
+            size--; // Remove max element from heap
+            /* Heapify A[0, ..., heap.size - 1] */
             sink(first, 1, size, compare);
         }
     }
@@ -76,16 +89,19 @@ private:
     static void
     sink(It input, std::size_t k, std::size_t size, Compare compare)
     {
+        // Parent node at k is at k/2
+        // Children of node at k are at 2k and 2k+1
         while (2 * k <= size) {
             std::size_t j = 2 * k;
+            // Examine children key (find out the max children)
             if (j < size && compare(input[j - 1], input[j])) {
                 j++;
             }
+            // Examine parent and max children
             if (compare(input[k - 1], input[j - 1])) {
                 std::swap(input[k - 1], input[j - 1]);
                 k = j;
-            }
-            else {
+            } else {
                 break;
             }
         }

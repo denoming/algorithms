@@ -32,11 +32,13 @@ namespace algorithms {
  * Properties:
  *   - Stable
  *   - Inplace
- *   - Worst-case performance: N^2 / 2
+ *   - Worst-case performance: N^2 / 2 (sorted list in reverse order)
  *   - Average performance: N^2 / 4
  *   - Best-case performance: N
+*    - Time complexity: O(n^2)
+*    - Space complexity: O(1)
  *
- * Remark: Use for small N or partially ordered.
+ * Remark: Use for small N or for partially ordered elements.
  */
 class InsertionSort {
 public:
@@ -60,13 +62,13 @@ public:
         }
 
         for (auto it = std::next(first); it != last; ++it) {
-            for (auto c = it; c != first;) {
-                auto p = std::prev(c);
-                if (compare(*c, *p)) {
-                    std::iter_swap(c, p);
-                    c = p;
-                }
-                else {
+            for (auto curr = it; curr != first;) {
+                auto prev = std::prev(curr);
+                if (compare(*curr, *prev)) {
+                    std::iter_swap(curr, prev);
+                    curr = prev;
+                } else {
+                    /*  */
                     break;
                 }
             }

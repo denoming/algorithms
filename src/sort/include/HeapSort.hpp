@@ -78,19 +78,30 @@ public:
         while (size > 1) {
             /* Swap max element with the last element */
             std::swap(first[0], first[size - 1]);
-            size--; // Remove max element from heap
-            /* Heapify A[0, ..., heap.size - 1] */
+            size--; // Decrease heap size by 1
+            /* Heapify A[0, ..., heap.size - 1] again (dispose last element to the proper place) */
             sink(first, 1, size, compare);
         }
     }
 
 private:
+    /**
+     *
+     * Parent node at k is at k/2
+     * Children of node at k are at 2k and 2k+1
+     *
+     *   i  0 1 2 3 4 5 6 7 8 9
+     * a[i] - 2 1 0 3 7 5 6 5 8
+     *        2 + -
+     *          1 0 + + - -
+     *              3 7 5 6 + +
+     *                      8 9
+     *
+     */
     template<typename It, typename Compare>
     static void
     sink(It input, std::size_t k, std::size_t size, Compare compare)
     {
-        // Parent node at k is at k/2
-        // Children of node at k are at 2k and 2k+1
         while (2 * k <= size) {
             std::size_t j = 2 * k;
             // Examine children key (find out the max children)

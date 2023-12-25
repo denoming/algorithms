@@ -23,6 +23,8 @@
 #include <vector>
 #include <string_view>
 
+#include <cstdint>
+
 namespace algorithms::lzw {
 
 constexpr std::size_t R = 256;
